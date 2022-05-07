@@ -1,0 +1,15 @@
+# Declaração de funções
+# 1 - Parâmetros posicionais
+# 2 - Parâmetros facultativos (x = "shj")
+# 3 - Parâmetro de posição variável
+# 4 - Parâmetros de somente palavras-chave
+
+def fun(
+    x, 
+    y, 
+    z, 
+    a = "Juju", 
+    *args, 
+    d, 
+    **kwargs
+    )
