@@ -39,11 +39,12 @@ class Carro:
             f"Ano: {self.ano}"
         )
 
+
 possante = Carro('Ferrari', 'F8 Tributo', '21')
 
-print(f'{possante}') #exibindo como acima
+print(f'{possante}')  # exibindo como acima
 
-print(f'{possante!r}') #exibindo por cada atributo
+print(f'{possante!r}')  # exibindo por cada atributo
 
 ###
 
