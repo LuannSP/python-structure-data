@@ -3,16 +3,16 @@ from typing import List, Any
 from copy import deepcopy
 
 
-class Stack:
+class Queue:
 
     def __init__(self) -> None:
         self.__dados: List[Any] = []
         self.__index = 0
 
-    def push(self, elemento: Any) -> None:
-        self.__dados.append(elemento)
+    def enqueue(self, elemento: Any) -> None:
+        self.__dados.insert(0, elemento)
 
-    def pop(self) -> Any:
+    def dequeue(self) -> Any:
         return self.__dados.pop()
 
     def peek(self) -> Any:
@@ -20,7 +20,7 @@ class Stack:
             return []
         return self.__dados[-1]
 
-    def __iter__(self) -> Stack:
+    def __iter__(self) -> Queue:
         self.__index = len(self.__dados)
         return self
 
