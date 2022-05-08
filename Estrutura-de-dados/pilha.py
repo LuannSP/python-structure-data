@@ -5,24 +5,24 @@ next = parar a iteracao para nao dar indexerror (for)
 bool = quando acabar os dados retorna false (while)
 repr = representacao da classe
 """
-
 from __future__ import annotations
+from typing import List, Any
 from copy import deepcopy
 
 
 class Pilha:
 
     def __init__(self) -> None:
-        self.__dados: list[int] = []
+        self.__dados: List[Any] = []
         self.__index = 0
 
-    def push(self, elemento: int) -> None:
+    def push(self, elemento: Any) -> None:
         self.__dados.append(elemento)
 
-    def pop(self) -> int:
+    def pop(self) -> Any:
         return self.__dados.pop()
 
-    def peek(self) -> int:
+    def peek(self) -> Any:
         if not self.__dados:
             return []
         return self.__dados[-1]
@@ -31,7 +31,7 @@ class Pilha:
         self.__index = len(self.__dados)
         return self
 
-    def __next__(self) -> int:
+    def __next__(self) -> Any:
         if self.__index == 0:
             raise StopIteration
         self.__index -= 1
@@ -66,7 +66,7 @@ p.push(3)
 for dados in p:
     print(dados)
 
-p_copia = deepcopy(p) 
+p_copia = deepcopy(p)
 
 while p_copia:
     print(p_copia.pop())
