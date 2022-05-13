@@ -33,9 +33,9 @@ x = lambda nmr1, nmr2: nmr1 * nmr2
 
 print(multiplicar(10, 10, x))
 
-# Parâmetros posicionais
-# Parâmetros facultativos
-    # Um dos últimos parâmetros
+# Parâmetros ais
+# Parâmetros facultatposicionivos
+# Um dos últimos parâmetros
 # Parâmetros de palavras-chave
 # Parâmetros de posição variável
 # Parâmetros de palavras-chave de posição variável
