@@ -1,5 +1,3 @@
-from multiprocessing.sharedctypes import Value
-from operator import index, truediv
 from node import Node
 
 
@@ -84,12 +82,12 @@ class LinkedList:
         return pointer
 
     def __repr__(self):
-        list = []
+        list = ""
         pointer = self.head
         while pointer:
-            list.append(pointer.data)
+            list += (f"{pointer.data} -> ")
             pointer = pointer.next
-        return str(list)
+        return list
 
     def __len__(self):
         return self._size

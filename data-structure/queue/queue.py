@@ -1,37 +1,40 @@
-from __future__ import annotations
-from typing import List, Any
-from copy import deepcopy
-
-
 class Queue:
 
-    def __init__(self) -> None:
-        self.__dados: List[Any] = []
-        self.__index = 0
+    def __init__(self):
+        self._dados = []
+        self._index = 0
+        self._size = 0
 
-    def enqueue(self, elemento: Any) -> None:
-        self.__dados.insert(0, elemento)
+    def enqueue(self, elem):
+        self._dados.insert(0, elem)
+        self._size += 1
 
-    def dequeue(self) -> Any:
-        return self.__dados.pop()
+    def dequeue(self):
+        if self._size:
+            self._size -= 1
+            return self._dados.pop()
+        raise IndexError("the queue is empty")
 
-    def peek(self) -> Any:
-        if not self.__dados:
+    def peek(self):
+        if not self._dados:
             return []
-        return self.__dados[-1]
+        return self._dados[-1]
 
-    def __iter__(self) -> Queue:
-        self.__index = len(self.__dados)
+    def __iter__(self):
+        self._index = len(self._dados)
         return self
 
-    def __next__(self) -> Any:
-        if self.__index == 0:
+    def __next__(self):
+        if self._index == 0:
             raise StopIteration
-        self.__index -= 1
-        return self.__dados[self.__index]
+        self._index -= 1
+        return self._dados[self._index]
 
-    def __bool__(self) -> bool:
-        return bool(self.__dados)
+    def __bool__(self):
+        return bool(self._dados)
 
-    def __repr__(self) -> str:
-        return f"{self.__dados}"
+    def __repr__(self):
+        return f"{self._dados}"
+
+    def __len__(self):
+        return self._size
