@@ -12,5 +12,5 @@ repetição (recomendado a utilização de deepcopy e o método dequeue) seguind
 Feita com a utilização de "nó" que permitem armazenamento em diferentes locais da memória e conectadas por esses nós, com métodos
 de inserção, remoção e iteração via sobrecarga de operador permitidos pela sua regra de acesso.
 
-- Árvore (inária de busca)
+- Árvore (binária de busca)
 em desenvolvimento.
