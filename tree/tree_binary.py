@@ -23,25 +23,25 @@ class TreeBinary():
             #print(")", end='')
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    tree = TreeBinary()
+    # tree = TreeBinary()
 
-    n1 = TreeNode(1)
-    n2 = TreeNode(2)
-    n3 = TreeNode(3)
-    n4 = TreeNode(4)
-    n5 = TreeNode(5)
+    # n1 = TreeNode(1)
+    # n2 = TreeNode(2)
+    # n3 = TreeNode(3)
+    # n4 = TreeNode(4)
+    # n5 = TreeNode(5)
 
-    tree.root = n1
+    # tree.root = n1
 
-    n1.left = n2
-    n1.right = n3
+    # n1.left = n2
+    # n1.right = n3
 
-    n3.left = n4
-    n3.right = n5
+    # n3.left = n4
+    # n3.right = n5
 
-    tree.simetric_traversal()
+    # tree.simetric_traversal()
 
     # n1 = TreeNode('a')
     # n2 = TreeNode('+')
