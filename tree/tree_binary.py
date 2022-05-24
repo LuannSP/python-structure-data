@@ -1,4 +1,3 @@
-from logging import root
 from tree_node import TreeNode
 
 
@@ -11,21 +10,68 @@ class TreeBinary():
         else:
             self.root = None
 
-    def simetric_traversal(self, node=None):
+    def inoder_traversal(self, node=None):
         if node is None:
             node = self.root
         if node.left:
             #print("(", end='')
-            self.simetric_traversal(node.left)
+            self.inoder_traversal(node.left)
         print(node, end='\n')
         if node.right:
-            self.simetric_traversal(node.right)
+            self.inoder_traversal(node.right)
             #print(")", end='')
+
+    def postorder_traversal(self, node=None):
+        if node is None:
+            node = self.root
+        if node.left:
+            self.postorder_traversal(node.left)
+        if node.right:
+            self.postorder_traversal(node.right)
+        print(node, end='')
+
+    def height(self, node=None):
+        if node is None:
+            node = self.root
+        h_left = 0
+        h_right = 0
+        if node.left:
+            h_left = self.height(node.left)
+        if node.right:
+            h_right = self.height(node.right)
+        if h_left > h_right:
+            return h_left + 1
+        return h_right + 1
 
 
 # if __name__ == "__main__":
 
-    # tree = TreeBinary()
+#     tree = TreeBinary()
+
+#     n1 = TreeNode('L')
+#     n2 = TreeNode('U')
+#     n3 = TreeNode('A')
+#     n4 = TreeNode('N')
+#     n5 = TreeNode('N')
+
+#     n6 = TreeNode('N')
+#     n7 = TreeNode('N')
+#     n8 = TreeNode('N')
+
+#     tree.root = n8
+
+#     n5.left = n3
+#     n5.right = n4
+#     n3.left = n1
+#     n3.right = n2
+
+#     n4.left = n6
+#     n4.right = n7
+#     n7.right = n8
+
+#     tree.postorder_traversal()
+
+#     print(tree.height())
 
     # n1 = TreeNode(1)
     # n2 = TreeNode(2)
@@ -41,7 +87,7 @@ class TreeBinary():
     # n3.left = n4
     # n3.right = n5
 
-    # tree.simetric_traversal()
+    # tree.inoder()
 
     # n1 = TreeNode('a')
     # n2 = TreeNode('+')
@@ -64,4 +110,4 @@ class TreeBinary():
 
     # tree.root = n2
 
-    # tree.simetric_traversal()
+    # tree.inoder()
