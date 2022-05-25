@@ -3,23 +3,23 @@ from tree_node import TreeNode
 
 class TreeBinary():
 
-    def __init__(self, data=None):
-        if data:
+    def __init__(self, data=None, node=None):
+        if node:
+            self.root = node
+        elif data:
             node = TreeNode(data)
             self.root = node
         else:
             self.root = None
 
-    def inoder_traversal(self, node=None):
+    def inorder_traversal(self, node=None):
         if node is None:
             node = self.root
         if node.left:
-            #print("(", end='')
-            self.inoder_traversal(node.left)
-        print(node, end='\n')
+            self.inorder_traversal(node.left)
+        print(node, end=' ')
         if node.right:
-            self.inoder_traversal(node.right)
-            #print(")", end='')
+            self.inorder_traversal(node.right)
 
     def postorder_traversal(self, node=None):
         if node is None:
