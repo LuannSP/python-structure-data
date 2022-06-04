@@ -3,7 +3,6 @@ from tree_node import TreeNode
 
 ROOT = "root"
 
-
 class TreeSearchBinary(TreeBinary):
 
     def insert(self, elem):
@@ -51,3 +50,23 @@ class TreeSearchBinary(TreeBinary):
         while node.right:
             node = node.right
         return node.data
+
+    def remove(self, elem, node=ROOT):
+        if node == ROOT:
+            node = self.root
+        if node is None:
+            return node
+        if elem < node.data:
+            node.left = self.remove(elem, node.left)
+        elif elem > node.data:
+            node.right = self.remove(elem, node.right)
+        else:
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            else:
+                substitute = self.min(node.right)
+                node.data = substitute
+                node.right = self.remove(substitute, node.right)
+        return None
