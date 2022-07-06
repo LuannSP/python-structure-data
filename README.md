@@ -13,4 +13,4 @@ feita com a utilização de "nó" que permitem armazenamento em diferentes locai
 de inserção, remoção e iteração via sobrecarga de operador permitidos pela sua regra de acesso.
 
 - Árvore (binária de busca)
-em desenvolvimento.
+Arvore binaria de busca feita a partir da estrutura de dados, Árvore, com o algoritmo da busca binaria feita em sua essência, com métodos de inserção, busca, tamanho mínimo e máximo da árvore e remoção dos elementos.
