@@ -1,13 +1,14 @@
 from tree_node import TreeNode
+from typing import Any
 from queue import Queue
 
 
-ROOT = "root"
+ROOT: str = "root"
 
 
 class TreeBinary():
 
-    def __init__(self, data=None, node=None):
+    def __init__(self, data: Any = None, node: TreeNode = None) -> None:
         if node:
             self.root = node
         elif data:
@@ -16,7 +17,7 @@ class TreeBinary():
         else:
             self.root = None
 
-    def inorder_traversal(self, node=None):
+    def inorder_traversal(self, node: TreeNode = None) -> None:
         if node is None:
             node = self.root
         if node.left:
@@ -25,7 +26,7 @@ class TreeBinary():
         if node.right:
             self.inorder_traversal(node.right)
 
-    def postorder_traversal(self, node=None):
+    def postorder_traversal(self, node: TreeNode = None) -> None:
         if node is None:
             node = self.root
         if node.left:
@@ -34,7 +35,7 @@ class TreeBinary():
             self.postorder_traversal(node.right)
         print(node, end='')
 
-    def height(self, node=None):
+    def height(self, node: TreeNode = None) -> None:
         if node is None:
             node = self.root
         h_left = 0
@@ -47,7 +48,7 @@ class TreeBinary():
             return h_left + 1
         return h_right + 1
 
-    def levelorder_traversal(self, node=ROOT):
+    def levelorder_traversal(self, node: str | TreeNode = ROOT) -> None:
         if node == ROOT:
             node = self.root
         queue = Queue()

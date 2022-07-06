@@ -1,13 +1,14 @@
+from typing import Any
 from node import Node
 
 
 class LinkedList:
 
-    def __init__(self):
-        self.head = None
-        self._size = 0
+    def __init__(self) -> None:
+        self.head: Any = None
+        self._size: int = 0
 
-    def append(self, elem):
+    def append(self, elem: Any) -> None:
         if self.head:
             pointer = self.head
             while pointer.next:
@@ -17,20 +18,20 @@ class LinkedList:
             self.head = Node(elem)
         self._size += 1
 
-    def __getitem__(self, index):
+    def __getitem__(self, index: int) -> Any:
         pointer = self._getNode(index)
         if pointer:
             return pointer.data
         raise IndexError("list index out of range")
 
-    def __setitem__(self, index, elem):
+    def __setitem__(self, index: int, elem: Any) -> None:
         pointer = self._getNode(index)
         if pointer:
             pointer.data = elem
         else:
             raise IndexError("list index out of range")
 
-    def index(self, elem):
+    def index(self, elem: Any) -> int:
         i = 0
         pointer = self.head
         while pointer:
@@ -41,7 +42,7 @@ class LinkedList:
                 i += 1
         raise ValueError(f"{elem} is not in list")
 
-    def insert(self, index, elem):
+    def insert(self, index: int, elem: Any) -> None:
         node = Node(elem)
         if index == 0:
             node.next = self.head
@@ -52,7 +53,7 @@ class LinkedList:
             pointer.next = node
         self._size += 1
 
-    def remove(self, elem):
+    def remove(self, elem: Any) -> bool:
         if self.head == None:
             raise ValueError(f"{elem} is not in list")
         elif self.head.data == elem:
@@ -72,7 +73,7 @@ class LinkedList:
                 pointer = pointer.next
         raise ValueError(f"{elem} is not in list")
 
-    def _getNode(self, index):
+    def _getNode(self, index: int) -> None:
         pointer = self.head
         for i in range(index):
             if pointer:
@@ -81,7 +82,7 @@ class LinkedList:
                 raise IndexError("list index out of range")
         return pointer
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         list = ""
         pointer = self.head
         while pointer:
@@ -89,5 +90,5 @@ class LinkedList:
             pointer = pointer.next
         return list
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self._size

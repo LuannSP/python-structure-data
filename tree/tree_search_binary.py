@@ -1,11 +1,14 @@
 from tree_binary import TreeBinary
 from tree_node import TreeNode
+from typing import Any
+from __future__ import annotations
 
-ROOT = "root"
+ROOT: str = "root"
+
 
 class TreeSearchBinary(TreeBinary):
 
-    def insert(self, elem):
+    def insert(self, elem: Any) -> None:
         parent = None
         aux = self.root
         while aux:
@@ -21,10 +24,10 @@ class TreeSearchBinary(TreeBinary):
         else:
             parent.right = TreeNode(elem)
 
-    def search(self, elem):
+    def search(self, elem: Any) -> (TreeSearchBinary | Any | None):
         return self._search(elem, self.root)
 
-    def _search(self, elem, node):
+    def _search(self, elem: Any, node: TreeNode) -> (TreeSearchBinary | Any | None):
         if node is None:
             return None
         if node.data == elem:
@@ -33,7 +36,7 @@ class TreeSearchBinary(TreeBinary):
             return self._search(elem, node.left)
         return self._search(elem, node.right)
 
-    def min(self, node=ROOT):
+    def min(self, node: str | TreeNode = ROOT) -> (Any | None):
         if node == ROOT:
             if self.root is None:
                 return None
@@ -42,7 +45,7 @@ class TreeSearchBinary(TreeBinary):
             node = node.left
         return node.data
 
-    def max(self, node=ROOT):
+    def max(self, node: str | TreeNode = ROOT) -> (Any | None):
         if node == ROOT:
             if self.root is None:
                 return None
@@ -51,7 +54,7 @@ class TreeSearchBinary(TreeBinary):
             node = node.right
         return node.data
 
-    def remove(self, elem, node=ROOT):
+    def remove(self, elem: Any, node: str | TreeNode = ROOT) -> (Any | None):
         if node == ROOT:
             node = self.root
         if node is None:

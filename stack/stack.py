@@ -1,40 +1,44 @@
+from __future__ import annotations
+from typing import Any, List
+
+
 class Stack:
 
-    def __init__(self):
-        self._dados = []
-        self._index = 0
-        self._size = 0
+    def __init__(self) -> None:
+        self._data: List[Any] = []
+        self._index: int = 0
+        self._size: int = 0
 
-    def push(self, elem):
-        self._dados.append(elem)
+    def push(self, elem: Any) -> None:
+        self._data.append(elem)
         self._size += 1
 
-    def pop(self):
+    def pop(self) -> Any:
         if not self._size:
             raise IndexError("the stack is empty")
         self._size -= 1
-        return self._dados.pop()
+        return self._data.pop()
 
-    def peek(self):
-        if not self._dados:
+    def peek(self) -> Any:
+        if not self._data:
             return []
-        return self._dados[-1]
+        return self._data[-1]
 
-    def __iter__(self):
-        self._index = len(self._dados)
+    def __iter__(self) -> Stack:
+        self._index = len(self._data)
         return self
 
-    def __next__(self):
+    def __next__(self) -> Any:
         if self._index == 0:
             raise StopIteration
         self._index -= 1
-        return self._dados[self._index]
+        return self._data[self._index]
 
-    def __bool__(self):
-        return bool(self._dados)
+    def __bool__(self) -> bool:
+        return bool(self._data)
 
-    def __repr__(self):
-        return f"{self._dados}"
+    def __repr__(self) -> str:
+        return f"{self._data}"
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self._size
